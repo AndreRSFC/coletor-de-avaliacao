@@ -1,5 +1,4 @@
- 
- //Dados recebidos no inicio do projeto  
+ //Dados inciais do projeto
  var dados =[
   {
     "id": 1,
@@ -35,26 +34,15 @@
     "storeId": 1,
     "storeName": "Dito Savassi",
     "score": 2
-  }
+  },
 ]; 
 
-//Como o sistema e pequeno ja aloquei os arrays
-lojas = [
-{
-  "storeName": "",
-  "satisfacao": 0,
-  "avaliacao" :0,
-  "excelente" :0,
-  "bom": 0,
-  "razoavel": 0,
-  "ruim" :0,
-  "horrivel":0,
-},
 
-{
-  "storeName": "",
+//Feita a tabela 1 pois a mesma conta so com 2 linhas 
+
+var totaal = [{
   "satisfacao": 0,
-  "avaliacao" :0,
+  "avaliacao" :dados.length,
   "excelente" :0,
   "bom": 0,
   "razoavel": 0,
@@ -64,85 +52,156 @@ lojas = [
 ];
 
 
-/*Transferindo dados da base de dados recebida ao começo do projeto para o array ja
-  organizado de acordo com os dados necessarios */
-let i;
-for(i = 0; i<dados.length; i++){
+//Variaveis que sao contadores
+let i, j,a;
 
-  if(dados[i].storeId == 1){
-    lojas[0].storeName = "Dito Savassi";
-    lojas[0].avaliacao = lojas[0].avaliacao+1;
-    if(dados[i].score == 1){
-      lojas[0].horrivel = lojas[0].horrivel + 1;
-    }
-    if(dados[i].score == 2){
-      lojas[0].ruim = lojas[0].ruim + 1;
-    }
-    if(dados[i].score == 3){
-      lojas[0].razoavel = lojas[0].razoavel + 1;
-    }
-    if(dados[i].score == 4){
-      lojas[0].bom = lojas[0].bom + 1;
-    }
-    if(dados[i].score == 5){
-      lojas[0].excelente = lojas[0].excelente + 1;
-    }
-  }
+//Checando por meio do for quantas lojas a diferentes nos dados iniciais
+let cont = 0;
 
-  if(dados[i].storeId == 2){
-    lojas[1].storeName = "Dito Rio de Janeiro";
-    lojas[1].avaliacao = lojas[1].avaliacao+1;
-    if(dados[i].score == 1){
-      lojas[1].horrivel = lojas[1].horrivel + 1;
-    }
-    if(dados[i].score == 2){
-      lojas[1].ruim = lojas[1].ruim + 1;
-    }
-    if(dados[i].score == 3){
-      lojas[1].razoavel = lojas[1].razoavel + 1;
-    }
-    if(dados[i].score == 4){
-      lojas[1].bom = lojas[1].bom + 1;
-    }
-    if(dados[i].score == 5){
-      lojas[1].excelente = lojas[1].excelente + 1;
-    }
+for(j = 1; j<dados.length; j++){
+  if(dados[j-1].storeId==dados[j].storeId){
   }
-  
+  else{
+    cont = cont+1;
+  }  
 }
 
-lojas[0].satisfacao = (lojas[0].bom + lojas[0].excelente)/lojas[0].avaliacao;
-lojas[1].satisfacao = (lojas[1].bom + lojas[1].excelente)/lojas[1].avaliacao;
+//Criaçao dos arrays para serem alocados logo em seguida
+let lojas = new Array();
+let lojasTodas = new Array();
+
+/*For disposto a preencher o array lojas que logo apos de ser preenchido e puxado para o array lojasTodas
+  se tornando apenas um elemnto do mesmo(Um array dentro de outro)*/
+
+for(a = 0; a<cont; a++){
+
+  var excelente = 0, bom = 0, razoavel = 0, ruim = 0, horrivel = 0, avaliacao = 0; satisfacao = 0;
+  let lojas = new Array();
+  for(i = 0; i<dados.length; i++){
+    
+
+    if(dados[i].storeId == a+1){
+      avaliacao = avaliacao+1;
+      lojas.storeName = dados[i].storeName;
+      lojas.avaliacao = avaliacao;
+
+      if(dados[i].score == 1){
+        horrivel = horrivel + 1;
+        lojas.horrivel = horrivel;
+        lojas.ruim = ruim;
+        lojas.razoavel = razoavel;
+        lojas.bom = bom;
+        lojas.excelente = excelente;
+      }
+
+      if(dados[i].score == 2){
+        ruim = ruim + 1;
+        lojas.horrivel = horrivel;
+        lojas.ruim = ruim;
+        lojas.razoavel = razoavel;
+        lojas.bom = bom;
+        lojas.excelente = excelente;
+      }
+
+      if(dados[i].score == 3){
+        razoavel = razoavel+1;
+        lojas.horrivel = horrivel;
+        lojas.ruim = ruim;
+        lojas.razoavel = razoavel;
+        lojas.bom = bom;
+        lojas.excelente = excelente;
+      }
+
+      if(dados[i].score == 4){
+        bom = bom+1;
+        lojas.horrivel = horrivel;
+        lojas.ruim = ruim;
+        lojas.razoavel = razoavel;
+        lojas.bom = bom;
+        lojas.excelente = excelente;
+        
+      }
+
+      if(dados[i].score == 5){
+        excelente = excelente+1;
+        lojas.excelente = excelente;
+        lojas.horrivel = horrivel;
+        lojas.ruim = ruim;
+        lojas.razoavel = razoavel;
+        lojas.bom = bom;
+
+      }
+    }
+}
+//Trecho responsavel por puxar um array para outro
+lojasTodas.push(lojas);
+}
+
+/*Preenchendo a sessão satisfaçao que precisava antes dos outros dados 
+  (a mesma também e setada para não ter mais que 2 valores depois da virgula)*/
+
+for(let g = 0; g <cont; g++){
+  lojasTodas[g].satisfacao = parseFloat((((lojasTodas[g].excelente + lojasTodas[g].bom)/lojasTodas[g].avaliacao)*100).toFixed(2)) + "%";
+}
+
+//Coloca valores gerais em outro array para a primeira tabela
+for(let g = 0; g <cont; g++){
+  
+  totaal[0].excelente = totaal[0].excelente + lojasTodas[g].excelente;
+  totaal[0].bom = totaal[0].bom + lojasTodas[g].bom;
+  totaal[0].razoavel = totaal[0].razoavel + lojasTodas[g].razoavel;
+  totaal[0].ruim = totaal[0].ruim+ lojasTodas[g].ruim;
+  totaal[0].horrivel = totaal[0].horrivel + lojasTodas[g].horrivel;
+}
+
+totaal[0].satisfacao = ((totaal[0].excelente +  totaal[0].bom)/totaal[0].avaliacao)*100;
+
+//Passando os dados para porcentagem e não deixando ter mais de 2 casas decimais
+let aux;
+
+aux = totaal[0].excelente/dados.length*100;
+totaal[0].excelente = parseFloat(aux.toFixed(2));
+aux= totaal[0].bom /dados.length*100;
+totaal[0].bom = parseFloat(aux.toFixed(2));
+aux = totaal[0].razoavel /dados.length*100;
+totaal[0].razoavel = parseFloat(aux.toFixed(2));
+aux= totaal[0].ruim/dados.length*100;
+totaal[0].ruim = parseFloat(aux.toFixed(2));
+aux = totaal[0].horrivel/dados.length*100;
+totaal[0].horrivel = parseFloat(aux.toFixed(2));
 
 
-//Uso de angular para enviar os dados para a tabela
+
+
+
+//Uso de angular para enviar os dados para a primeira tabela
 var avalia = angular.module('avalia', []);
 
 avalia.controller('Index' , function(){
     var vm = this;
 
-    vm.loja=[
+    vm.total = [
       {
-        "storeName": lojas[0].storeName,
-        "satisfacao": lojas[0].satisfacao,
-        "avaliacao" :lojas[0].avaliacao,
-        "excelente" :lojas[0].excelente,
-        "bom": lojas[0].bom,
-        "razoavel": lojas[0].razoavel,
-        "ruim" :lojas[0].ruim,
-        "horrivel":lojas[0].horrivel,
-      },
-      
-      {
-        "storeName": lojas[1].storeName,
-        "satisfacao": lojas[1].satisfacao,
-        "avaliacao" :lojas[1].avaliacao,
-        "excelente" :lojas[1].excelente,
-        "bom": lojas[1].bom,
-        "razoavel": lojas[1].razoavel,
-        "ruim" :lojas[1].ruim,
-        "horrivel":lojas[1].horrivel,
-      },
+      "satisfacao":totaal[0].satisfacao + "%",
+      "avaliacao" :totaal[0].avaliacao,
+      "excelente" :totaal[0].excelente + "%",
+      "bom": totaal[0].bom + "%",
+      "razoavel": totaal[0].razoavel + "%",
+      "ruim" :totaal[0].ruim + "%",
+      "horrivel":totaal[0].horrivel + "%",
+    },
     ];
 
 });
+
+/*Como não foi conseguido mandar o arrray lojasTodas por angular o mesmo foi passado normalmente*/
+for(let k = 0; k < cont; k++){
+  let insereEL = document.querySelector('#insere');
+  let table = document.querySelector('#tab');
+  var tr = table.insertRow(insereEL); 
+  tr.innerHTML +="<td><a>  "+(k+1)+" "+"</a>"+ lojasTodas[k].storeName +"</td>" + "<td>"+ lojasTodas[k].satisfacao +"</td>" +
+                "<td>"+ lojasTodas[k].avaliacao +"</td>" + "<td>"+ lojasTodas[k].excelente +"</td>" +
+                "<td>"+ lojasTodas[k].bom +"</td>" + "<td>"+ lojasTodas[k].razoavel +"</td>" + 
+                "<td>"+ lojasTodas[k].ruim +"</td>" + "<td>"+ lojasTodas[k].horrivel +"</td>" +
+                "<td><spam>+</spam></td>";
+}

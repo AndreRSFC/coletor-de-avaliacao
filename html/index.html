@@ -5,80 +5,129 @@
         <title>Avaliações</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <script src="../js/index.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">       
     </head>
 
   <body ng-controller="Index as vm">
         <header>
             <div class="container">
-                <h3 class="page-title base">Pesquisa</h3>
+
+                <p class="base">Pesquisa</p>
+                <p id="texto1">PONTO DE VENDA</p>
+        
+        
+                    
             </div>
+            
         </header>
 
         <main>
             <div class="container">
-                <h1 class="page-title">Avaliações </h1>
-                <table class="table">  
-                        <thead>
-                            <tr>
-                                <th>Nome da loja</th>
-                                <th>Satisfação</th>
-                                <th>Avaliação</th>
-                                <th>Excelente</th>
-                                <th>Muito Bom</th>
-                                <th>Razoavel</th>
-                                <th>Ruim</th>    
-                                <th>Horrivel</th>
-                            </tr>                  
-                        </thead>
+                <h6>Consolidado das lojas</h6>
+                <table class="tabela1"> 
+                    <thead>
+                        <tr>
+                            <th class="elemento">Satisfacao<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB3klEQVQ4T5WTOasqQRCFz7jviqIICkYuCAqmIsYG/mQzYxUTERFxFxVccd8ep3g9c4Wb3IbGaafqzFenqrXP5/PB//V+v8H9er3k93w+w+FwwGKxwGw2w2Qyyf65NCVAncPhgPV6jc1mg91uh/v9Lok+nw+hUAjhcBjBYBCapukausB+v0en05FEElitVvj9ftxuNyEhEYXS6TQikci3AANarRYoQuRAIIBMJiPoTFytVpjNZkLmdruRy+WEiEsIRqMRut2uIEejUcTjcRFZLBaCTZrpdIrhcIjH44FEIoFsNmsItNtt+QLRic1km82G7XYrJETn+8FggNPpJDGlUskQqNfrYiBxuei03W6XwFQqJQTz+RwkZbk8VyoVQ6BWq+F6vUJ1lC67XC4Ui0XpwmQyEQESSd2ahmq1agg0Gg0sl0spQRHQpGQyKT5w8wPqndfrRblcNgRoDk2kQSqI5hF/PB6LuBJgZ2KxGPL5vCHAl81mU58BYjOI7er3+yJyuVzEG4/Hg0KhIMbqbeQDe9zr9UTk+XzKPDCIrjOZi2eWRTo10voksn6i0iiVxLmg4+wIB4jt5ZywxWrpAvyDbWQ5bNXxeBQhp9MpyURXF+vXy/R1xf5w+CL4Q54e+g/Y8kTgcMEibQAAAABJRU5ErkJggg=="></th></th>
+                            <th class="elemento">Avaliações<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB3klEQVQ4T5WTOasqQRCFz7jviqIICkYuCAqmIsYG/mQzYxUTERFxFxVccd8ep3g9c4Wb3IbGaafqzFenqrXP5/PB//V+v8H9er3k93w+w+FwwGKxwGw2w2Qyyf65NCVAncPhgPV6jc1mg91uh/v9Lok+nw+hUAjhcBjBYBCapukausB+v0en05FEElitVvj9ftxuNyEhEYXS6TQikci3AANarRYoQuRAIIBMJiPoTFytVpjNZkLmdruRy+WEiEsIRqMRut2uIEejUcTjcRFZLBaCTZrpdIrhcIjH44FEIoFsNmsItNtt+QLRic1km82G7XYrJETn+8FggNPpJDGlUskQqNfrYiBxuei03W6XwFQqJQTz+RwkZbk8VyoVQ6BWq+F6vUJ1lC67XC4Ui0XpwmQyEQESSd2ahmq1agg0Gg0sl0spQRHQpGQyKT5w8wPqndfrRblcNgRoDk2kQSqI5hF/PB6LuBJgZ2KxGPL5vCHAl81mU58BYjOI7er3+yJyuVzEG4/Hg0KhIMbqbeQDe9zr9UTk+XzKPDCIrjOZi2eWRTo10voksn6i0iiVxLmg4+wIB4jt5ZywxWrpAvyDbWQ5bNXxeBQhp9MpyURXF+vXy/R1xf5w+CL4Q54e+g/Y8kTgcMEibQAAAABJRU5ErkJggg=="></th>
+                            <th class="elemento">Excelente</th>
+                            <th class="elemento">Muito Bom</th>
+                            <th class="elemento">Razoavel</th>
+                            <th class="elemento">Ruim</th>
+                            <th class="elemento">Horrivel</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="total in vm.total">
+                            <td class="elemento2 font1">
+                                {{total.satisfacao}}
+                            </td>
+                            <td class="elemento2 font1">
+                                {{total.avaliacao}}
+                            </td>
+                            <td class="elemento2">
+                                <i class="em em-heart_eyes"></i>
+                                {{total.excelente}}
+                            </td>
+                            <td class="elemento2">
+                                <i class="em em-grinning"></i>
+                                {{total.bom}}
+                            </td>
+                            <td class="elemento2">
+                                <i class="em em-neutral_face"></i>
+                                {{total.razoavel}}
+                            </td>
+                            <td class="elemento2">
+                                <i class="em em-frowning"></i>
+                                {{total.ruim}}
+                            </td>
+                            <td class="elemento2">
+                                <i class="em em-angry"></i>
+                                {{total.horrivel}}
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+
+
+                <h6 id="txtpesquisa">Lojas</h6>
+                
+                <div  class="busca">
+                            <input id="sborda" type="text" placeholder="Buscar Loja">
+                            <button class="ssborda">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAWCAYAAAArdgcFAAAA60lEQVRIS+2VQQ6CMBBFf28hCRuv4Eq4hZqYiEcBXShcBRcGj0FZeQRNXCi3qJEGRGhlUsLGyJK278+8MoEJIQQGethvwvmewd2+nYVcwJ/SHWq0cETMRQCgBFZBuxRi45ASlHAJCpEKHx+YLAJzgiqwK0EBl1Wf4weS1ahxPke8tJDMVGvtKC0cGr9FV6CpUcC/Vde7ciA/LGB5p5Zb+X7SvguNfO0QNT/D+vm58j5IzuubpIb1ESiBZVeUAKPxpwYYwV+9UQKM4UVAxnG1x3Ds5jxItb3gBhPadYS+/q9c6WpYLZfbfbAf9BMSfLho4d2yFwAAAABJRU5ErkJggg==" alt="">
+                            </button>                                       
+                </div>
+
+
+                <table class="table" >
+
+                    <thead class="bc">
+                        <tr class="mfonte">
+                            <th>NOME DA LOJA</th>
+                            <th>SATISFAÇÃO</th>
+                            <th>AVALIAÇÕES</th>
+                            <th>EXCELENTE</th>
+                            <th>MUITO BOM</th>
+                            <th>RAZOÁVEL</th>
+                            <th>RUIM</th>    
+                            <th>HORRÍVEL</th>
+                            <th></th>
+                        </tr>                  
+                    </thead>
             
-                        <tbody>
-                                <tr ng-repeat="loja in vm.loja">
-
-                                    <td name="Nome">
-                                        {{loja.storeName}}            
-                                    </td>
-
-                                    <td name="Satisfacao">
-                                        {{loja.satisfacao}}
-                                    </td>
- 
-                                    <td name="Avaliacao">
-                                        {{loja.avaliacao}}
-                                    </td >
-
-                                    <td name="Excelente">
-                                        {{loja.excelente}}
-                                    </td>
-
-                                    <td name="Bom">
-                                        {{loja.bom}}
-                                    </td>
-
-                                    <td name="Razoavel">
-                                        {{loja.razoavel}}
-                                    </td>
-
-                                    <td name="Ruim">
-                                        {{loja.ruim}}
-                                    </td>
-
-                                    <td name="Horrivel">
-                                        {{loja.horrivel}}
-                                    </td>
-
-                                </tr>
-                            </tbody>
+                    <tbody id="tab">
+                        <tr id="insere" class="mmfonte">                            
+                        </tr>
+                    </tbody>
             
                 </table>      
             </div>
-                    
-            
-
 
         </main>
+
+        <footer>
+            <div class="container">
+                    <div class="pagination">
+                            <a href="#">Primeira</a>
+                            <a href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">Última</a>
+                          </div>                          
+            </div>
+        </footer>
+
+        <script src="../js/index.js"></script>
   </body>
 
 

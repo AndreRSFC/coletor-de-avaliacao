@@ -1,0 +1,141 @@
+body{
+    padding-top: 20px;
+}
+
+.base{
+    padding-bottom: 10px; 
+    border-bottom: 1px greenyellow solid;
+    color: grey;
+    font-size: 20px;
+    width: 100%;
+    max-width: 100px;
+    text-align: center;
+}
+
+#texto1{
+    padding-bottom: 1%;
+    font-size: 8px;
+    width: 100%;
+    max-width: 100px;
+    text-align: center;
+    color: grey;
+}
+
+.tabela1{
+    padding: 5px;
+    border: solid 1px rgb(201, 191, 191);
+    width: 100%;
+}
+
+.table{
+    width: 100%;
+}
+
+.elemento{
+    border-left: solid 1px rgb(221, 214, 214);
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%; 
+    text-align: center;
+    font-size: 13px;
+}
+
+.elemento2{
+    border-left: 1px solid #dee2e6;
+    text-align: center;
+    padding-bottom: 2%;
+    font-size: 13px;
+    font-weight: bold; 
+}
+
+.font1{
+    font-size: 18px;
+}
+
+#txtpesquisa{
+    padding-top: 2%;
+    padding-bottom: 2%;  
+}
+
+.busca{
+    border:1px solid #dee2e6;
+    width: 100%;
+    max-width: 221px; 
+}
+
+#sborda{
+    border: none;
+    background-color: white;
+    
+}
+
+#sborda:-webkit-input-placeholder{
+    font-size: 12px;
+}
+.ssborda{
+    background-color: white;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-color: #dee2e6;
+}
+
+.table{
+    margin-top: 2%; 
+    border: 1px solid #f8f7f8;
+}
+
+.mfonte{
+    font-size: 10px;
+    color: #9fa5ac;
+}
+
+.bc{
+    background-color: #dee2e6;
+}
+
+td>a{
+    border: solid 1px #9fa5ac;
+    border-radius: 100%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    padding-left: 4%;
+    padding-right: 3%; 
+}
+
+td{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+
+.pagination a:hover:not(.active) {
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    color: white;
+}
+
+spam{
+    font-size: 15px;
+    border: solid 1px #dee2e6;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-right: 20%;
+    padding-left: 20%;
+    font-weight: bold;
+    border-radius: 20%;
+}
+
+spam:hover{
+    border-color: rgb(44, 43, 43);
+    background-color:rgb(44, 43, 43);
+    color:white;
+}
