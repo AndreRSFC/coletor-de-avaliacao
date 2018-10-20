@@ -1,6 +1,6 @@
 # coletor-de-avaliacao
 
-Projeto desenvolvido com o intuido de resolver um desafio Dito.
+Projeto desenvolvido com o intuido de resolver um desafio de um estágio.
 
 Esse projeto foi desenvolvido com objetivo de ser uma tela de mostragem de avaliações, está aplicação tem um sistema de alocamento dinamico
 ou seja idependente do tamanho dos dados iniciais enviados ela irá funcionar  e talvez esse seja seu maior objetivo.
